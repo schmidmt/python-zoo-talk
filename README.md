@@ -3,8 +3,12 @@
 
 ## Table of Contents
 
-0. [Prerequisites](#Prerequisites)
-1. [Virtual Environments](#Virtual-Environments)
+0. [Prerequisites](#prerequisites)
+1. [Virtual Environments](#virtual-environments)
+2. [Standard Library](#standard-library)
+3. [Plotting](#plotting)
+4. [Analysis](#analysis)
+5. [Development Tools](#development-tools)
 
 ## Prerequisites
 __Please__ ensure you have Python installed, either via Conda or the python installer.
@@ -63,9 +67,128 @@ Activate:
 conda activate myenv
 ```
 
-Any conda installs from this point go into the virtual environment.
+Any Conda installs from this point go into the virtual environment.
 
 Deactivate:
 ```bash
 conda deactivate
 ```
+
+## Standard Library
+
+The standard library for Python contains tools which are general and performant.
+A full list can be found [here](https://docs.python.org/3/library/index.html).
+What follows is a sampling I think is a good place to start.
+
+### RE
+[Docs](https://docs.python.org/3/library/re.html).
+
+The `re` library contains tools to work with [Regular Expressions](https://en.wikipedia.org/wiki/Regular_expression) for pattern matching.
+It's worth noting, not all regular expression syntax is the same.
+
+#### Example
+
+```python
+import re
+
+expression = re.compile(r"abc")
+
+print(expression.match("abcdef"))
+print(expression.match("defghi"))
+```
+
+
+### Itertools
+[Docs](https://docs.python.org/3/library/itertools.html?highlight=itertools).
+
+Itertools are useful for common enumerations to make iteration more efficient and easy to understand.
+
+#### Example
+```python
+import itertools
+
+list(itertools.permutations('ABCD', 2))
+```
+
+### Argparse
+[Docs](https://docs.python.org/3/library/argparse.html?highlight=argparse)
+
+Argparse is a tool for parsing command line arguments.
+
+#### Example
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description="An example for Argparse")
+parser.add_argument("-n", "--n-iterations", type=int, help="number of iterations to perform")
+args = parser.parse_args()
+
+print(args)
+```
+
+
+### Unittest
+
+We'll use `pytest` as our test runner so let's make sure that it's installed:
+```bash
+$ pip3 install pytest
+# OR
+$ conda install pytest
+```
+
+Unit testing is the practice of testing each "unit" of code.
+For example
+
+```python
+import unittest
+
+def collatz_steps(n: int) -> int:
+    steps = 0
+    while n > 1:
+        if n & 1 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        steps += 1
+
+    return steps
+
+
+class CollatzStepsTest(unittest.TestCase):
+    def test_base_case(self):
+        self.assertEqual(collatz_steps(1), 0)
+
+    def test_larger(self):
+        self.assertEqual(collatz_steps(27), 111)
+
+```
+
+## Plotting
+
+### Matplotlib
+
+### Seaborn
+
+### Plotly
+
+
+## Analysis
+
+### Numpy
+
+### Scipy
+
+### Pandas
+
+### [Polars](https://www.pola.rs)
+
+
+
+## Development Tools
+
+
+### Black
+
+### Linters
+
+### Git
