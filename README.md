@@ -160,25 +160,24 @@ class CollatzStepsTest(unittest.TestCase):
 
     def test_larger(self):
         self.assertEqual(collatz_steps(27), 111)
-
 ```
 
 ## Plotting
 
-### Matplotlib
+### [Matplotlib](https://matplotlib.org/stable/api/index.html)
 
-### Seaborn
+### [Seaborn](https://seaborn.pydata.org/api.html)
 
-### Plotly
+### [Plotly](https://plotly.com/python/reference/)
 
 
 ## Analysis
 
-### Numpy
+### [Numpy](https://numpy.org/doc/stable/reference/index.html#reference)
 
-### Scipy
+### [Scipy](https://docs.scipy.org/doc/scipy/reference/)
 
-### Pandas
+### [Pandas](https://pandas.pydata.org/docs/reference/index.html)
 
 ### [Polars](https://www.pola.rs)
 
@@ -187,8 +186,11 @@ class CollatzStepsTest(unittest.TestCase):
 ## Development Tools
 
 
-### Black
+### [Black](https://black.readthedocs.io/en/stable/)
 
 ### Linters
+
+* [Pylint](https://pylint.pycqa.org/en/latest/)
+* [Flake8](https://pypi.org/project/flake8/)
 
 ### Git
